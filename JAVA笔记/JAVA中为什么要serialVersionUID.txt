@@ -1,0 +1,4 @@
+涉及到反序列化
+参考：https://zhidao.baidu.com/question/537293158.html
+	https://www.cnblogs.com/skjsg/p/4686411.html
+	*https://www.cnblogs.com/duanxz/p/3511695.html

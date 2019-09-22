@@ -1,0 +1,1 @@
+https://localhost:9043/ibm/help/index.jsp?topic=/com.ibm.ws.console.resources/ae/rcon_scope.html

@@ -1,0 +1,19 @@
+ctrl + t 
+
+ctrl + o 
+
+ctrl + / 
+
+ctrl + d
+
+ctrl + m 
+
+ctrl + l 
+
+ctrl + k
+
+
+ctrl + shift + g
+
+ctrl + shift + o
+

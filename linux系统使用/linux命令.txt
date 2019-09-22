@@ -1,0 +1,24 @@
+ps -ef|grep tomcat  查看当前进程
+netstat -anop | grep XXXXPID  根据进程号查看端口
+
+---根据进程ID号杀死进程
+kill -9 PID
+
+----杀死linux所有的tomcat服务进程
+ps -efww|grep tomcat|grep -v grep|cut -c 9-15|xargs kill -9
+
+
+top 查看系统整体运行情况
+
+pwd 显示当前所在的路径
+
+
+
+top
+atop
+htop
+free
+
+vmstat
+nmon
+

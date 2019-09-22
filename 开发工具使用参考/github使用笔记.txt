@@ -1,0 +1,87 @@
+
+github官方指导使用教程：https://guides.github.com/
+
+
+使用教程参考：https://blog.csdn.net/Hanani_Jia/article/details/77950594
+
+1。注册github账号（https://github.com/）
+2。新建仓库（存项目的地方）
+
+3。接下来需要知道：github上已经有自己的仓库了，则么样在本机也克隆一个仓库，与github上的仓库关联上，这样，     后面在本机修改项目可以及时的同步到github上，方便使用！！！！
+4。在创建完成自己的库之后，下面就要让自己的电脑克隆一个自己所创建的库，方面自己电脑上的代码同步到GitHub你     所创建的库当中。
+5.为了实现3、4 就需要安装一个软件---Git Bash（https://git-scm.com/）
+6.下载好该软件以后，需要本地生成一个KEY，通过它来与github进行关联。要在本地创建一个ssh key 这个的目的就是  你现在需要在你电脑上获得一个密匙，就是咱们平时的验证码一样的东西，获取之后，在你的GitHub账号里边输入之后   ，你的电脑就和你的GitHub账号联系在一起了，这样以后就可以十分方便的通过Git bash 随时上传你的代码。
+6.命令  $ ssh-keygen-t rsa-C "your_email@youremail.com"  生成本机SSH KEY
+	一般生成后放在：C:\Users\Administrator\.ssh
+7.打开 id_rsa / id_rsa.pub 会看到一串密码----SSH 密钥
+8.在github上添加密钥
+9.在 git bash上输入  ssh -T git@github,com  检验是否成功！第一次绑定的时候输入上边的代码之后会提示是否	continue，在输入yes后如果出现了：You've successfully authenticated, but GitHub does not provide 	shell access 。那就说明，已经成功连上了GitHub
+10.设置用户名、注册邮箱 
+	git config --global user.name "guolei0528"
+	git config --global user.email "942297338@qq.com"
+
+------------------------------
+如何将github上的项目下载到本地？
+
+11.将github上的库克隆到本地，方便以后进行代码上传。
+12.在创建仓库的时候，会有一个网址生成----库的地址（唯一的）
+13.根据习惯在本地创建克隆库的位置，我放在D盘的某个目录
+14。在git bash上进入D盘
+15. cd /D   
+    cd githubstore/    
+    git clone https://github.com/guolei0528/gl20181025.git
+16.你会在D/githubstore下看到github上你定义的仓库名字的文件夹------至此github和本地库已经关联上了
+17.然后在仓库文件夹中 存放你需要github托管的项目，
+   然后用命令 git add  XXX 表示要进行托管
+   修改完项目代码后使用命令 git commit -m "XXX--描述本次修改的内容"   进行上传代码。
+18.在提交代码之前记得 git pull 拉取最新代码！ 然后输入命令 git push origin master  将代码放到某个分支上
+19.至此 所有的工作完成。
+20.再之后，你只需要将你的代码，放到库的对应的文件夹中，然后使用，git add XXX、git commit -m "   " 、最后      git push origin master，将你的代码提交就可以了。
+
+
+
+--------------------------------------------------------------------
+如何将本地项目上传到github上？  
+参考：https://blog.csdn.net/zamamiro/article/details/70172900
+	https://www.jianshu.com/p/c70ca3a02087
+
+1.新建文件夹（用于存放项目）
+2.git init 把这个文件夹变成Git可管理的仓库
+3.git add .  表示将该文件夹下的文件都交给仓库管理
+4.git commit -m "本次提交的注释"
+5.关联到github上的仓库地址（复制仓库地址：如：https://github.com/guolei0528/show.git） 
+6.将该仓库关联到github上 git remote add origin https://github.com/guolei0528/show.git
+7.上传本地代码 git push -u origin master
+8.完成
+
+
+
+------------------------------
+如何清除关联的github仓库地址？
+参考：https://blog.csdn.net/dengjianqiang2011/article/details/9260435
+命令 :git remote rm origin
+
+
+--------------------------------
+如何解决 The file will have its original line endings in your working directory？
+参考：https://blog.csdn.net/liereli/article/details/80824804
+原因分析：首先出现这个问题主要原因是：我们从别人github地址上通过git clone下载下来，而又想git push到我们自己的github上，那么就会出现上面提示的错误信息
+
+解决办法：此时需要执行如下代码：
+    git rm -r --cached .
+    git config core.autocrlf false
+    git add .
+   . 代表当前目录
+
+----------------------------------
+如何在  GitHub：怎样在参与开发时同步你的远程代码仓库？（将别人的项目通过fork到自己的github账号，这样在自己	的GitHub仓库中就会有该代码库： ）
+参考：https://blog.csdn.net/fengzei886/article/details/51098367  			https://zhidao.baidu.com/question/758168136221456804.html
+	https://www.neilren.com/Article/1003278
+
+---------------------------------
+如何给github项目添加协作成员？
+参考：https://blog.csdn.net/Gpwner/article/details/53140016
+
+
+
+ 

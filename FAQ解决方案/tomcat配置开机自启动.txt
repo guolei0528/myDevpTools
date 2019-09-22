@@ -1,0 +1,16 @@
+https://blog.csdn.net/ytm15732625529/article/details/79121196
+
+1;环境变量里面配置
+tomcat的环境变量配置的过程中，系统变量中的path路径中要添加上tomcat安装的bin路径
+（如：d:/tomcat/bin），否则如果没有在此目录下运行命令会报“不是内部或外部命令”的错。
+
+
+2：进入dos窗口，输入service.bat install，启动服务
+
+3：通过services.msc查看服务，同时将状态改为启用，将启动类型改为自动。
+
+
+
+
+linux系统设置开机自启动tomcat  在etc/rc.local
+添加该内容：/opt/tomcat8/bin/startup.sh

@@ -1,0 +1,30 @@
+1.JDK
+2.eclipse
+3.IDEA
+4.apachtomcat
+5.mysql
+6.oracle
+
+
+7.SVN
+8.maven
+9.redis&&RedisDesktopManager
+10.git
+
+
+11.VM 虚拟机
+12.postman
+13.navicat
+14.sqldeveloper.exe
+15.notpad++
+16.ftp
+17.VNC、Xshell
+18.反编译JD_GUI
+19.google 
+20.temview
+21.mybatis代码快速生成工具
+
+
+22.腾讯桌面--电脑管家 --桌面整理
+23.WPS
+24.有道云笔记

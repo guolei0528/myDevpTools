@@ -1,0 +1,18 @@
+参考：*https://blog.csdn.net/qq_23412263/article/details/70269640
+	https://blog.csdn.net/wendychiang1991/article/details/52857943
+	*https://blog.csdn.net/pangliang_csdn/article/details/68945872
+	**https://blog.csdn.net/u010354710/article/details/24818183
+
+web.xml加载的顺序  参考https://www.cnblogs.com/supeman/p/6070382.html
+
+web.xml中的 servlet-mapping 配置
+参考 https://www.cnblogs.com/canger/p/6084846.html
+
+
+DWR生成的文件在哪？
+参考：https://blog.csdn.net/sivyer123/article/details/19203325
+	关键在项目中运行这个：http://localhost:8084/firtDWR/dwr/index.html 这个地址是访问DWR配置的，查看是否配置成功。
+	
+
+DWR中js调用Java方法的参数及返回值：
+参考：https://blog.csdn.net/liuxiao723846/article/details/46816619

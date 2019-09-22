@@ -1,0 +1,28 @@
+
+如果想了解比较全面的使用方法：请参考API文档！！
+
+******************************************************************
+
+//通过GetObjectClass方法得到这个对象
+ jclass objectClass = (env)->GetObjectClass(obj);
+ 
+ 
+//通过GetFieldID方法得到这个对象的fsize属性
+jfieldID fs = (env)->GetFieldID(objectClass,"filesize","I");
+
+//再通过SetIntField（）方法把这个属性和结构体一一对应赋值 类似于下面这样：
+(env)->SetIntField(obj,fs,40);
+
+
+例如：
+class中有个属性为String类型：
+public class FileInfo{
+   public String name; 
+}
+
+		//取得类对象
+		jclass objectClass = (env)->GetObjectClass(sobj);  //sobj即传递进来的类的对象:new FileInfo()
+		//取得该String属性的ID
+		jfieldID jname = (env)->GetFieldID(objectClass,"name","Ljava/lang/String;"); //参数“Ljava/lang/String;”表示这个是String型
+		//取得该属性的具体值：
+		jstring js = (jstring)(env)->GetObjectField(sobj,jname);

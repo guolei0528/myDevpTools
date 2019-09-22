@@ -1,0 +1,12 @@
+参考文档：https://www.cnblogs.com/zhangshitong/p/6478721.html
+
+
+WEB项目通过https访问：https://blog.csdn.net/rainyspring4540/article/details/68925073
+http://www.cnblogs.com/moon521/p/5948058.html
+* https://blog.csdn.net/keketrtr/article/details/52869173
+
+
+密钥生成：http://ln-ydc.iteye.com/blog/1335213
+
+
+

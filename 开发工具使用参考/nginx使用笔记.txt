@@ -1,0 +1,24 @@
+官网下载地址：http://nginx.org/en/download.html
+说明：
+Mainline version 最新版
+Stable version 稳定版
+Legacy versions 历史版
+文件后面带Windows字样的为WIN版，其它是Linux版
+
+1.下载---解压到指定文件夹
+2.具体使用参考https://www.cnblogs.com/jiangwangxiang/p/8481661.html   		https://blog.csdn.net/liuhailiuhai12/article/details/75009661/
+3.如果需要修改conf下的nginx,conf 记得使用：
+注意：当修改配置文件后，要nginx -s quit 然后 start nginx 才有配置后的效果，用 nginx -s reload 没效果。可能是windows版本的一个bug吧。
+4.主要配置文件就是nginx,conf.关于配置文件的说明请参考：https://www.cnblogs.com/Joans/p/4386556.html
+5.配置负载均衡，参考https://blog.csdn.net/liuhailiuhai12/article/details/75009661/
+6.配置响应超时时间，解决在负载均衡时切换时间过长，参考https://www.cnblogs.com/netcorner/p/7209685.html
+7.nginx实现自动切换，参考https://blog.csdn.net/lxb15959168136/article/details/53113996/ 
+8.nginx主从配置，只有当主机宕机后才启用从机，参考https://blog.csdn.net/bolg_hero/article/details/73382117
+
+
+说明：keepalived没有基于Windows平台的版本！！！
+9.keepalived+nginx 参考https://blog.csdn.net/l1028386804/article/details/72801492  							https://blog.csdn.net/l1028386804/article/details/72801492
+	*https://www.cnblogs.com/youzhibing/p/7327342.html
+
+互联网架构的高可用性（主备和负载均衡和无痕迁移）的保证，参考：https://www.cnblogs.com/shizhiyi/p/7750530.html
+keepalived实现原理，参考http://blog.51cto.com/6638225/1867848

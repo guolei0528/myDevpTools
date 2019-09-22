@@ -1,0 +1,52 @@
+add 功能：向文件拷贝所在的文件夹中添加新的文件，并作出标识，是新添加的，下一步提交时将一并提交到Subversion版本库中去。简单的说就是将一新文件加入svn，你添加再提交后该文件就进入subversion版本中去了；
+在开发中，如果创建了新的文件或目录，那么你需要先把它们纳入版本控制中。选中那个文件或目录并使用TortoiseSVN > Add… 即可,然后再提交，就可以进入SVN版本库中管理了
+add只是在.svn里面做了一个标记，并没有真正上传到SVN服务器；
+commit之后就会真正加入到版本库中了。
+
+
+check out跟check in对应，export跟import对应。 
+check out导出获得文件后，导出的文件仍处于SVN版本控制中，与版本库保持关联，比如你可以进行Svn Update或者Svn Commit操作。同时导出文件夹下有一个.svn的隐藏文件夹，存储着一些版本的元数据信息。
+
+export 简单导出一个版本的数据，导出的文件脱离SVN版本控制，修改后无进行Update和Commit操作。导出文件夹下没有.svn目录。
+
+
+创建branch
+在/trunk/MyProject目录上右键，依次选择"TortoiseSVN" -> "Branch/tag..."，在弹出窗口的"To URL"中填入分支的地址，在这里目标revision选择HEAD revision，添加log后点击ok分支便建立了。这个操作速度非常快.
+新建的branch在repository中其实只是一个指向trunk某个revision的软连接而已，并没有真的复制文件。
+
+
+*主干或者分支相互合并代码：https://blog.csdn.net/yann02/article/details/79239803 			   				https://blog.csdn.net/catoop/article/details/70246780
+				https://www.cnblogs.com/mq0036/p/3498908.html
+1：主干合并到分支：在分支上右键--merge--URL to merge from 填写主干的地址。
+2：分支合并到主干：在主干上右键--merge--URL to merge from 填写分支的地址。
+branch主要用于新功能的开发
+合并发生在本地working copy，只要你不提交就不会影响到repository
+合并前一定要先update、commit，保证不会out of day，并将本地的修改保存到repository
+branch和trunk并行开发的过程中，要经常同步，将trunk的修改合并到branch，合并时选择"Merge a range of revision"
+branch最后合并回trunk时，merge type选择"Reintegrate a branch"
+
+
+SVN解决冲突：
+解决冲突只能靠人而不是机器。当产生冲突时，你应该打开冲突的文件，查找以<<<<<<<开始的行。冲突部分被标记：
+　　<<<<<<< filename
+　　your changes
+　　=======
+　　code merged from repository
+　　>>>>>>> revision
+　　Subversion为每个冲突文件产生三个附加文件：
+　　filename.ext.mine
+　　更新前的本地文件。
+　　filename.ext.rOLDREV
+　　你作改动的基础版本。
+　　filename.ext.rNEWREV
+　　更新时从档案库得到的最新版本。
+
+
+
+
+----------------------------------------------------------------------------------------------
+*****SVN创建仓库：https://blog.csdn.net/u014098089/article/details/82417124
+		  https://blog.csdn.net/justry_deng/article/details/82259470
+
+
+

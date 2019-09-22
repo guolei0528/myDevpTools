@@ -1,0 +1,18 @@
+题外话：
+restful风格，就是一种  *面向资源服务的API设计方式  ，它不是规范，不是标准，它一种设计模式。以前流行的web service服务都是面向过程，基于RPC协议的SOAP协议，对于现在或者未来，更多的人了解并且深受SOA思想影响，以面向服务为目标，而现在的SOAP虽然支持SOA（面向服务的架构），但存在很很大的差别，所以，慢慢就流行基于restful风格的web service。说简单一点，就是它纯粹面向资源，面向服务的思想，目前J2EE6的JAX-RS就是这种restful风格实现的新技术。 
+总之 restfull api 就是一个风格，按照这个风格设计出来的接口 会很棒，但是不是必须的，我们如果只是要实现某个功能，完全可以忽略  restfull 风格，按照自己的 风格来设计就可以了。
+
+
+1、websocket是HTML5出的一种协议
+2、HTTP不支持长连接
+3、Html5是指的一系列新的API，或者说新规范，新技术
+4、Websocket是一个持久化的协议，相对于HTTP这种非持久的协议来说的
+5、首先，Websocket是一个持久化的协议，相对于HTTP这种非持久的协议来说。简单的举个例子吧，用目前应用比较广泛的PHP生命周期来解释。
+HTTP的生命周期通过 Request 来界定，也就是一个 Request 一个 Response ，那么在 HTTP1.0 中，这次HTTP请求就结束了。
+在HTTP1.1中进行了改进，使得有一个keep-alive，也就是说，在一个HTTP连接中，可以发送多个Request，接收多个Response。但是请记住 Request = Response ， 在HTTP中永远是这样，也就是说一个request只能有一个response。而且这个response也是被动的，不能主动发起。
+*6、首先Websocket是基于HTTP协议的，或者说借用了HTTP的协议来完成一部分握手。
+7、WebSocket用于在Web浏览器和服务器之间进行任意的双向数据传输的一种技术。
+8、WebSocket为应用层协议
+9、websocket实现解析 http://developer.51cto.com/art/201707/544534.htm
+10、websocket API http://www.cnblogs.com/xuemanjiangnan/p/7658362.html
+

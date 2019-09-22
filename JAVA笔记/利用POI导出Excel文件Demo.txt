@@ -1,0 +1,167 @@
+
+
+参考：https://blog.csdn.net/qq_34874784/article/details/79884479
+
+HSSFWorkbook wb = new HSSFWorkbook();
+说明：区分 wb.createSheet()和 wb.getSheet("sheet1")/wb.getSheetAt(0) 参考：https://blog.csdn.net/u011794238/article/details/46276551/
+1:新建Sheet:
+从构造器可以看出，虽然它有两个构建器，但都是protected的，所以要新建Sheet，只能通过Workbook。
+在Workbook里新建Sheet时，使用「HSSFWorkbook」类的「createSheet」的方法。
+HSSFWorkbook workbook = new HSSFWorkbook();//创建个空白的workbook
+HSSFSheet sheet = workbook.createSheet();//创建个空白的sheet
+
+2:读取现有的Sheet
+对于在Workbook已经存在的Sheet来说，可以用「HSSFWorkbook」类的「getSheet」方法来读取。使用方法如下：
+HSSFWorkbook workbook = new HSSFWorkbook();
+HSSFSheet sheet = workbook.getSheet("sheet1")//读取名称为sheet1的sheet
+
+不用Sheet名而用Sheet的序列号来取得Sheet的话，可以用「HSSFWorkbook」类的「getSheetAt」方法。使用方法如下：
+HSSFWorkbook workbook = new HSSFWorkbook();
+HSSFSheet sheet = workbook.getSheetAt(1);//读取序号为1的sheet（第二张sheet）注意：序号是从0开始
+
+
+
+
+前台：
+<button class="btn btn-primary" type="button"
+											onclick="exprort()">导出</button>
+											
+
+		//导出Excel表格
+		function exprort(){
+			$.ajax({
+				type:"post",
+				url:"exportExcel.shtml",
+				data:{
+					"id":'123',
+					"name":'qwer'
+				},
+				dataType:"text",
+				success:function(msg){
+					alert("OK"+msg);
+				},
+				error:function(msg){
+					alert("NO"+msg);
+				}
+				
+			});
+			
+			
+		}
+
+后台:
+	@RequestMapping(value = "/exportExcel", method = { RequestMethod.GET, RequestMethod.POST })
+	@ResponseBody
+	public String exportExcel(HttpServletRequest request) throws ParseException{
+		 String id = getStr(request, "id");
+		 String name =  getStr(request, "name");
+		 System.out.println(id + "---" + name);
+		 //************************创建表格**************************begin
+		 List list = new ArrayList();
+		 SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+		 Student user1 = new Student(7, "小红", 16, df.parse("1991-03-12"));
+		 Student user2 = new Student(8, "小明", 17, df.parse("1992-08-12"));
+		 Student user3 = new Student(9, "小花", 26, df.parse("1983-11-12"));
+		 list.add(user1);
+		 list.add(user2);
+		 list.add(user3);
+
+		 
+		 //第一步 创建workbook  对应一个excel文件
+		 HSSFWorkbook wb = new HSSFWorkbook();
+		 
+		//第二步  在workbook中创建sheet 对应excel中的sheet
+		 HSSFSheet sheet = wb.createSheet();
+		 
+		// 第三步，在sheet中添加表头第0行,注意老版本poi对Excel的行数列数有限制short
+		 HSSFRow row = sheet.createRow((int) 0);
+		 
+		// 第四步，创建单元格，并设置值表头 设置表头居中
+		 HSSFCellStyle style = wb.createCellStyle();
+		 style.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 创建一个居中格式
+		 //创建单元格
+		 HSSFCell cell = row.createCell((short) 0);
+		 cell.setCellValue("学号");
+		 cell.setCellStyle(style);
+		 
+		 cell = row.createCell((short) 1);
+		 cell.setCellValue("姓名");
+		 cell.setCellStyle(style);
+		 
+		 cell = row.createCell((short) 2);
+		 cell.setCellValue("年龄");
+		 cell.setCellStyle(style);
+		 
+		 cell = row.createCell((short) 3);
+		 cell.setCellValue("生日");
+		 cell.setCellStyle(style);
+
+		for (int i = 0; i < list.size(); i++) {
+			HSSFRow rowin = sheet.createRow((int) i + 1);
+			Student stu = (Student) list.get(i);
+			// 第四步，创建单元格，并设置值
+			rowin.createCell((short) 0).setCellValue((double) stu.getId());
+			rowin.createCell((short) 1).setCellValue(stu.getName());
+			rowin.createCell((short) 2).setCellValue((double) stu.getAge());
+			cell = rowin.createCell((short) 3);
+			cell.setCellValue(new SimpleDateFormat("yyyy-mm-dd").format(stu.getBirth()));
+		}
+
+		// 第六步，将文件存到指定位置
+		try {
+			FileOutputStream fout = new FileOutputStream("E:/students1.xls");
+			wb.write(fout);
+			fout.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+		 
+		//************************创建表格**************************end
+		 return "成功";
+	}
+
+public class Student {
+	private int id;
+	private String name;
+	private int age;
+	private Date birth;
+	
+
+	public Student() {
+		
+	}
+	public Student(int id, String name, int age, Date birth) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.birth = birth;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public Date getBirth() {
+		return birth;
+	}
+	public void setBirth(Date birth) {
+		this.birth = birth;
+	}
+	
+	
+}

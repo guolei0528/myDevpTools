@@ -1,0 +1,91 @@
+JAVA 中创建线程的方法常见的有4种：
+1：继承Thread类
+2：实现Runnable接口
+3：使用Callable和Future创建线程
+4：使用线程池 例如：用Executor框架
+
+声明：比较常用的是1和2
+
+创建线程典例：
+1：继承Thread类创建线程
+一般步骤如下
+
+
+1】d定义Thread类的子类，并重写该类的run()方法，该方法的方法体就是线程需要完成的任务，run()方法也称为线程执行体。
+
+
+2】创建Thread子类的实例，也就是创建了线程对象
+
+
+3】启动线程，即调用线程的start()方法
+
+public class MyThread extends Thread{
+
+	public void run(){
+		//重写run()方法
+		//线程真正的执行体。。。。
+	}
+}
+//创建线程并启动线程
+public class Main{
+	public static void main(String[] args){
+	      //创建线程
+	      MyThread myThread = new MyThread();
+	      //启动线程
+	      myThread.start();
+
+　　　　     //new MyThread().start();//或者直接创建并启动线程
+
+　　}
+}
+
+
+2：实现Runnable接口创建线程
+一般步骤如下：
+
+
+1】定义Runnable接口的实现类，一样要重写run()方法，这个run（）方法和Thread中的run()方法一样是线程的执行体
+
+
+2】创建Runnable实现类的实例，并用这个实例作为Thread的target来创建Thread对象，这个Thread对象才是真正的线程对象
+
+
+3】第三部依然是通过调用线程对象的start()方法来启动线程
+public class MyThread2 implements Runnable{
+	
+	public void run(){
+		//重写run()方法
+		//线程真正的执行体。。。。
+	}
+}
+//创建线程并启动线程
+public class Main{
+	public static void main(String[] args){
+	      //创建线程	
+	      MyThread2 myThread = new MyThread2();	
+	      Thread  thread = new Thread(myThread);
+	      //启动线程
+	      thread.start();	
+
+　　　　      //new Thread(new MyThread2 ()).start();//或者直接创建并启动线程
+
+　　}
+}
+
+其它两种使用方法参考：https://blog.csdn.net/m0_37840000/article/details/79756932
+
+
+-------------------------------------------------------------------------------------------------------------------------
+使用线程的经典案例：生产者消费者模式。
+三要素：生产者、消费者、仓库。
+
+正常现象：保证生产的东西及时消费掉，有生产就有消费。
+非正常现象：1）只生产无消费，也就是生成的东西没有及时的消费掉。2）只消费不生产，也就是只消费东西而没有生成东西。
+		3）生产的东西大于仓库的容量 4）消费完东西后仓库存量小于0，注意是存量
+
+
+线程同步就是“线程排队”的意思——一个一个来，先来后到抢占锁，牢记这一点。官方起名字翻译过来的容易引起误解！！！
+线程同步是非常耗费资源的一种操作。我们要尽量控制线程同步的代码段范围。同步的代码段范围越小越好。我们用一个名词“同步粒度”来表示同步代码段的范围。 
+
+关于线程同步的理解，参考https://blog.csdn.net/qq_39285447/article/details/78995092
+

@@ -1,0 +1,5 @@
+首先要理解一个基本问题：对比eclipse ,在IntelliJ IDEA中“new Project”相当于eclipse中的工作空间（Workspace），而“new Module”相当于eclipse中的工程（Project）。以下均采用Intellij的说法，请自行对照转换理解。
+
+
+
+

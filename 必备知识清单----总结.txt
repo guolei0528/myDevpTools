@@ -1,0 +1,290 @@
+1、JAVA基础
+	？基本：创建实例化对象的几种方式、异常类如何分类处理、
+*A：
+new、
+反射机制Class.forName("com.user.User").newInstance()、
+clone方法，需要类实现Cloneable接口User user2 = (User)user1.clone()、
+序列化反序列化writeObject(user1)和readObject()：序列化-ObjectOutputStream out = new ObjectOutputStream (new FileOutputStrea("D:/objectUser.txt")); out.writeObject(user1); out.close(); 
+		反序列化-ObjectInputStream in = new ObjectInputStream(new FileInputStream("D:/objectUser.txt")); User user4 = (User) in.readObject(); in.close(); 
+		
+
+*A：自定义异常
+	自定义异常类继承Exception类，根据业务异常进行分类最终在某个业务处理层进行统一异常处理。
+    统一异常处理：
+	Spring 实现统一异常处理三种方式：
+		使用 @ ExceptionHandler 注解：使用该注解有一个不好的地方就是：进行异常处理的方法必须与出错						的方法在同一个Controller里面。
+		实现 HandlerExceptionResolver 接口：这种方式可以进行全局的异常控制。
+		使用 @controlleradvice +  @ ExceptionHandler 注解 ==	实现 HandlerExceptionResolver 接口 
+
+
+————————————————————————————————————————————————————
+	 集合：基本接口、常见集合以及数据结构原理、应用场景、区别、哪些是线程安全的、
+	 JAVA集合四大接口：
+		Collection :旗下有List和Set两大接口
+			List:有序、不唯一
+			Set:无序、唯一数据
+		Map:键值对的形式存储数据、键不可以重复	
+		
+
+		接口的常用实现类：
+			ArrayList、LinkedList、
+			HashSet、LinkedHashSet、TreeSet、
+			HashMap、LinkedHashMap、TreeMap、HashTable
+		常用实现类：
+			ArrayList
+			LinkList
+
+			HashSet
+
+			HashMap：非线程安全、性能较好
+			HashTable:线程安全但是效率不高
+	效率高又是线程安全的集合：ConcurrentHashMap
+	ConcurrentHashMap和HashTable都是线程安全的集合，它们的不同主要是加锁粒度上的不同。	HashTable的加锁方法是给每个方法加上synchronized关键字，这样锁住的是整个Table对象。
+	而ConcurrentHashMap是更细粒度的加锁 在JDK1.8之前，ConcurrentHashMap加的是分段锁，也就是Segment锁，	每个Segment含有整个table的一部分，这样不同分段之间的并发操作就互不影响 ，JDK1.8对此做了进一步的改进，它取消了Segment字段，直接在table元素上加锁，实现对每一行进行加锁，进一步减小了并发冲突的概率。
+
+
+
+JDK的并发容器：
+concurrent报下也提供了对应的类。concurrent共提供了5个类，分别为：
+
+
+ConcurrentHashMap?线程安全的Map
+
+ConcurrentSkipListMap 线程安全且具有排序功能的Map
+ConcurrentSkipListSet 线程安全且具有排序功能的Set
+
+CopyOnWriteArrayList 线程安全能够在遍历的过程中对List进行操作(包括写和删除)
+
+
+CopyOnWriteArraySet	线程安全能够在遍历的过程中对Set进行操作(包括写和删除)
+
+并发集合
+ConcurrentHashMap:这是一个高效的并发HashMap.你可以把它理解为一个线程安全的HashMap。
+
+CopyOnWriteArrayList:这是一个List，从名字看就知道它和ArrayList是一族的。在读多写少的场合，这个List的性能非常好，远远优于Vector。
+
+ConcurrentLinkedQueue:高效的并发队列，使用链表实现。可以看作一个线程安全的LinkedList.
+
+BlockingQueue:这是一个接口，JDK内部通过链表、数组等方式实现了这个接口。表示阻塞队列，非常适合作为数据共享的通道。
+
+ConcurrentSkipListMap:跳表的实现。这是一个Map，使用跳表的数据结构进行快速查找。
+
+
+	？IO流：字符和字节以及文件、BIO和NIO区别、
+	https://www.cnblogs.com/runningTurtle/p/7088125.html
+	 什么是流
+    	Java中的流是对字节序列的抽象，我们可以想象有一个水管，只不过现在流动在水管中的不再是水，而是字节序列。和水流一样，Java中的流也具有一个“流动的方向”，通常可以从中读入一个字节序列的对象被称为输入流；能够向其写入一个字节序列的对象被称为输出流。
+	字符流与字节流的区别
+经过以上的描述，我们可以知道字节流与字符流之间主要的区别体现在以下几个方面：
+
+字节流操作的基本单元为字节；字符流操作的基本单元为Unicode码元。
+字节流默认不使用缓冲区；字符流使用缓冲区。
+字节流通常用于处理二进制数据，实际上它可以处理任意类型的数据，但它不支持直接写入或读取Unicode码元；字符流通常处理文本数据，它支持写入及读取Unicode码元。
+	再简单点理解就是：
+1. 同步，就是我调用一个功能，该功能没有结束前，我死等结果。
+2. 异步，就是我调用一个功能，不需要知道该功能结果，该功能有结果后通知我（回调通知）
+3. 阻塞，就是调用我（函数），我（函数）没有接收完数据或者没有得到结果之前，我不会返回。
+4. 非阻塞，就是调用我（函数），我（函数）立即返回，通过select通知调用者
+
+
+
+	？多线程：创建线程的几种方式、线程间的通信、关键字、线程的状态、线程池技术、线程池中常用哪些API方法、生产者消费者模式、异步处理流程、newFixedThreadPool 和 newCachedThreadPool的使用场景以及区别和分别使用的队列、线程之间的同步有哪些方式、
+	
+	线程之间的通信：
+	1、syncrhoized加锁的线程的Object类的wait()/notify()/notifyAll()
+	2、ReentrantLock类加锁的线程的Condition类的await()/signal()/signalAll()
+	线程间直接的数据交换：
+　　    3、通过管道进行线程间通信：1）字节流；2）字符流
+	
+
+	CachedThreadPool 注意队列实例是：new SynchronousQueue()
+	SynchronousQueue
+SynchronousQueue是无界的，是一种无缓冲的等待队列，但是由于该Queue本身的特性，在某次添加元素后必须等待其他线程取走后才能继续添加；可以认为SynchronousQueue是一个缓存值为1的阻塞队列，但是 isEmpty()方法永远返回是true，remainingCapacity() 方法永远返回是0，remove()和removeAll() 方法永远返回是false，iterator()方法永远返回空，peek()方法永远返回null。
+声明一个SynchronousQueue有两种不同的方式，它们之间有着不太一样的行为。公平模式和非公平模式的区别:如果采用公平模式：SynchronousQueue会采用公平锁，并配合一个FIFO队列来阻塞多余的生产者和消费者，从而体系整体的公平策略；但如果是非公平模式（SynchronousQueue默认）：SynchronousQueue采用非公平锁，同时配合一个LIFO队列来管理多余的生产者和消费者，而后一种模式，如果生产者和消费者的处理速度有差距，则很容易出现饥渴的情况，即可能有某些生产者或者是消费者的数据永远都得不到处理。
+
+
+  　	FixedThreadPool 注意队列实例是：new LinkedBlockingQueue()
+	LinkedBlockingQueue
+LinkedBlockingQueue是无界的，是一个无界缓存的等待队列。
+基于链表的阻塞队列，内部维持着一个数据缓冲队列（该队列由链表构成）。当生产者往队列中放入一个数据时，队列会从生产者手中获取数据，并缓存在队列内部，而生产者立即返回；只有当队列缓冲区达到最大值缓存容量时（LinkedBlockingQueue可以通过构造函数指定该值），才会阻塞生产者队列，直到消费者从队列中消费掉一份数据，生产者线程会被唤醒，反之对于消费者这端的处理也基于同样的原理。
+LinkedBlockingQueue之所以能够高效的处理并发数据，还因为其对于生产者端和消费者端分别采用了独立的锁来控制数据同步，这也意味着在高并发的情况下生产者和消费者可以并行地操作队列中的数据，以此来提高整个队列的并发性能。
+
+
+
+	自旋锁（spinlock）：是指当一个线程在获取锁的时候，如果锁已经被其它线程获取，那么该线程将循环等待，然后不断的判断锁是否能够被成功获取，直到获取到锁才会退出循环。获取锁的线程一直处于活跃状态，但是并没有执行任何有效的任务，使用这种锁会造成busy-waiting。	
+
+	自旋锁的优点
+自旋锁不会使线程状态发生切换，一直处于用户态，即线程一直都是active的；不会使线程进入阻塞状态，减少了不必要的上下文切换，执行速度快
+非自旋锁在获取不到锁的时候会进入阻塞状态，从而进入内核态，当获取到锁的时候需要从内核态恢复，需要线程上下文切换。 （线程被阻塞后便进入内核（Linux）调度状态，这个会导致系统在用户态与内核态之间来回切换，严重影响锁的性能）
+	自旋锁存在的问题
+如果某个线程持有锁的时间过长，就会导致其它等待获取锁的线程进入循环等待，消耗CPU。使用不当会造成CPU使用率极高。
+上面Java实现的自旋锁不是公平的，即无法满足等待时间最长的线程优先获取锁。不公平的锁就会存在“线程饥饿”问题。
+
+
+
+
+
+	JDK API：JDK自带的队列优缺点和原理
+	分布式环境下不适应JDK自带队列，原理：https://blog.csdn.net/NetSnake_/article/details/81226470
+
+
+
+
+	动态代理和反射的实现和关键类、实现原理、
+	一、什么是反射机制 
+        简单的来说，反射机制指的是程序在运行时能够获取自身的信息。在java中，只要给定类的名字， 
+    那么就可以通过反射机制来获得类的所有信息。 
+二、哪里用到反射机制 
+        有些时候，我们用过一些知识，但是并不知道它的专业术语是什么，在刚刚学jdbc时用过一行代码， 
+    Class.forName("com.mysql.jdbc.Driver.class").newInstance();但是那时候只知道那行代码是生成 
+    驱动对象实例，并不知道它的具体含义。听了反射机制这节课后，才知道，原来这就是反射，现在很多开 
+    框架都用到反射机制，hibernate、struts都是用反射机制实现的。 
+三、反射机制的优点与缺点 
+        为什么要用反射机制？直接创建对象不就可以了吗，这就涉及到了动态与静态的概念， 
+    静态编译：在编译时确定类型，绑定对象,即通过。 
+    动态编译：运行时确定类型，绑定对象。动态编译最大限度发挥了java的灵活性，体现了多 
+    态的应用，有以降低类之间的藕合性。 
+    一句话，反射机制的优点就是可以实现动态创建对象和编译，体现出很大的灵活性，特别是在J2EE的开发中 
+    它的灵活性就表现的十分明显。比如，一个大型的软件，不可能一次就把把它设计的很完美，当这个程序编 
+    译后，发布了，当发现需要更新某些功能时，我们不可能要用户把以前的卸载，再重新安装新的版本，假如 
+    这样的话，这个软件肯定是没有多少人用的。采用静态的话，需要把整个程序重新编译一次才可以实现功能 
+    的更新，而采用反射机制的话，它就可以不用卸载，只需要在运行时才动态的创建和编译，就可以实现该功 
+    能。 
+       它的缺点是对性能有影响。使用反射基本上是一种解释操作，我们可以告诉JVM，我们希望做什么并且它 
+    满足我们的要求。这类操作总是慢于只直接执行相同的操作。 
+四、利用反射机制能获得什么信息 
+         一句话，类中有什么信息，它就可以获得什么信息，不过前提是得知道类的名字，要不就没有后文了 
+    首先得根据传入的类的全名来创建Class对象。 
+    Class c=Class.forName("className");注明：className必须为全名，也就是得包含包名，比如，cn.netjava.pojo.UserInfo; 
+    Object obj=c.newInstance();//创建对象的实例 
+    OK，有了对象就什么都好办了，想要什么信息就有什么信息了。   
+    获得构造函数的方法 
+    Constructor getConstructor(Class[] params)//根据指定参数获得public构造器
+
+    Constructor[] getConstructors()//获得public的所有构造器
+
+    Constructor getDeclaredConstructor(Class[] params)//根据指定参数获得public和非public的构造器
+
+    Constructor[] getDeclaredConstructors()//获得public的所有构造器 
+    获得类方法的方法 
+    Method getMethod(String name, Class[] params),根据方法名，参数类型获得方法
+
+    Method[] getMethods()//获得所有的public方法
+
+    Method getDeclaredMethod(String name, Class[] params)//根据方法名和参数类型，获得public和非public的方法
+
+    Method[] getDeclaredMethods()//获得所以的public和非public方法 
+    获得类中属性的方法 
+    Field getField(String name)//根据变量名得到相应的public变量
+
+    Field[] getFields()//获得类中所以public的方法
+
+    Field getDeclaredField(String name)//根据方法名获得public和非public变量
+
+    Field[] getDeclaredFields()//获得类中所有的public和非public方法 
+    常用的就这些，知道这些，其他的都好办…… 
+
+
+
+
+
+JAVA抽象类和接口的区别？
+抽象类和接口的区别
+1.语法层面上的区别
+1）抽象类可以提供成员方法的实现细节，而接口中只能存在public abstract 方法；
+2）抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是public static final类型的；
+3）接口中不能含有静态代码块以及静态方法，而抽象类可以有静态代码块和静态方法；
+4）一个类只能继承一个抽象类，而一个类却可以实现多个接口。
+2.设计层面上的区别
+1）抽象类是对一种事物的抽象，即对类抽象，而接口是对行为的抽象。抽象类是对整个类整体进行抽象，包括属性、行为，但是接口却是对类局部（行为）进行抽象。举个简单的例子，飞机和鸟是不同类的事物，但是它们都有一个共性，就是都会飞。那么在设计的时候，可以将飞机设计为一个类Airplane，将鸟设计为一个类Bird，但是不能将 飞行 这个特性也设计为类，因此它只是一个行为特性，并不是对一类事物的抽象描述。此时可以将 飞行 设计为一个接口Fly，包含方法fly( )，然后Airplane和Bird分别根据自己的需要实现Fly这个接口。然后至于有不同种类的飞机，比如战斗机、民用飞机等直接继承Airplane即可，对于鸟也是类似的，不同种类的鸟直接继承Bird类即可。从这里可以看出，继承是一个 “是不是”的关系，而 接口 实现则是 “有没有”的关系。如果一个类继承了某个抽象类，则子类必定是抽象类的种类，而接口实现则是有没有、具备不具备的关系，比如鸟是否能飞（或者是否具备飞行这个特点），能飞行则可以实现这个接口，不能飞行就不实现这个接口。
+2）设计层面不同，抽象类作为很多子类的父类，它是一种模板式设计。而接口是一种行为规范，它是一种辐射式设计。什么是模板式设计？最简单例子，大家都用过ppt里面的模板，如果用模板A设计了ppt B和ppt C，ppt B和ppt C公共的部分就是模板A了，如果它们的公共部分需要改动，则只需要改动模板A就可以了，不需要重新对ppt B和ppt C进行改动。而辐射式设计，比如某个电梯都装了某种报警器，一旦要更新报警器，就必须全部更新。也就是说对于抽象类，如果需要添加新的方法，可以直接在抽象类中添加具体的实现，子类可以不进行变更；而对于接口则不行，如果接口进行了变更，则所有实现这个接口的类都必须进行相应的改动。
+
+
+
+
+
+
+
+五、用反射机制能干什么事 
+        刚开始在使用jdbc时侯，在编写访问数据库时写到想吐，有八个表，每个表都有增删改查中操作 
+    那时候还不知道有反射机制这个概念，所以就对不同的表创建不同的dao类,这样不仅开发速率地，而且代码 
+    冗余的厉害，最要命的是看着差不多的，然后直接复制修改，由于容易犯各种低级的错误（大小写啊，多一 
+    个或少一个字母啊……）,一个错误就可以让你找半天。 
+        有了java反射机制，什么都好办了，只需要写一个dao类，四个方法，增删改查，传入不同的对象，就OK啦， 
+    无需为每一个表都创建dao类，反射机制会自动帮我们完成剩下的事情，这就是它的好处。说白了，反射机制就是专门 
+    帮我们做那些重复的有规则的事情，所以现在很多的自动生成代码的软件就是运用反射机制来完成的，只要你按照规则 
+    输入相关的参数，所以低级的程序员慢慢的就被抹杀了，为什么？因为代码都不用写了，随便一个人都会开发，还要程 
+    序员干什么啊？所以我们只有一条出路，那就是努力努力再努力，成为高级程序员，专门开发傻瓜软件，让其他程序员  到 一边凉快去，呵呵~ 
+六、用反射机制实现对数据库数据的增、查例子 
+    基本原理；保存数据时，把需要保存的对象的属性值全部取出来再拼凑sql语句 
+                 查询时，将查询到的数据全部包装成一个java对象。 
+    游戏规则：俗话说的好，无规矩不成方圆，特别是程序来说，它只能做有规则的事情，没有规则的它干不了，好，那就 
+              先定规则 
+              1）数据库的每一个表对象一个pojo类，表中的每一个字段对应pojo类的中的一个属性。 
+                 并且pojo类的名字和表的名字相同，属性名和字段名相同，大小写没有关系，因为数据库一般不区分大小写  
+              2）为pojo类中的每一个属性添加标准的set和get方法。 
+
+
+
+
+
+
+
+
+
+
+2、Spring
+	1、spring核心模块哪些、分别做什么的
+	2、Spring 和 SpringMVC区别、SpringMVC的处理流程、请求如何和Controller进行映射找到处理哪个Controller的
+	3、Spring AOP 的核心类及原理
+	4、Spring中常用注解及使用场景
+	5、Spring的生命周期和作用域
+	6、过滤器和拦截器区别、为什么先走过滤器、手写拦截器和过滤器需要做哪些工作、分别属于哪个技术栈、
+	
+3、Mybatis
+	1、Mybatis的缓存机制和使用场景
+	2、一对多和多对一、
+	3、Mybatis怎么实现表和实体对象之间的映射的
+	4、Mybatis的实现原理
+	5、Mybatis的动态SQL常见标签
+
+4、其它框架Struts2、Hibertate的实现原理及处理流程
+   Spring boot 自己写一个Starters 需要做哪些工作
+
+5、JVM模型、划分及分别的职能
+
+6、GC原理和流程
+
+7、数据库
+	1、Mysql和Oracle的区别，分别的应用场景
+	2、Mysql的索引机制数据结构和什么时候走索引什么时候不走索引、为什么使用索引
+	3、怎么进行SQL优化
+	4、如果一条SQL查询很慢怎么排查原因
+
+8、Redis
+	1、什么是Redis、为什么使用它
+	2、它的应用场景有哪些
+	3、哪些基本数据类型、分别的使用场景
+	4、Redis实现发布订阅、以及其它的高级应用
+
+
+9、其它中间件
+	1、Kafka和RabbitMQ的区别和分别的使用场景
+	2、还有哪些中间件
+	3、如何保证消息被消费了、消息持久化、消息一致性等等高级特性
+
+8、WEB
+	1、使用哪些前端框架
+	2、JS和Jquery关系
+	3、如何解决跨域问题
+	4、菜单如何分发路由的
+	5、Http协议组成及里面存储的内容和HTTPS协议的区别
+	6、一个HTTP请求从发送到接收结果整个流程
+
+
+9、Tomcat调优、内存溢出怎么排查（哪些辅助工具扫描）、
+
+
+10、拦截器和过滤器区别和应用场景
+
+

@@ -1,0 +1,38 @@
+g++ -g -c -o parm_delv_v3.o parm_delv_v3.c
+
+g++ -g  parm_delv_v3.o -o parm_delv_v3 -L/usr/lib/mysql -lmysqlclient ../comm.o ../config.o ../xml/tinystr.o ../xml/tinyxml.o ../xml/tinyxmlerror.o ../xml/tinyxmlparser.o
+
+g++ -g -o test test.c -ldl
+
+g++ -fPIC -shared -o calcfee.so parm_delv_v3.o ../comm.o ../config.o ../xml/tinystr.o ../xml/tinyxml.o ../xml/tinyxmlerror.o ../xml/tinyxmlparser.o -Xlinker --unresolved-symbols=ignore-in-shared-libs
+
+g++ -fPIC -shared -o calcfee.so parm_delv_v3.o  -L/usr/lib/mysql -lmysqlclient -L/home/coder/jifei -L/home/coder/jifei/xml comm.o config.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o -Xlinker --unresolved-symbols=ignore-in-shared-libs
+
+
+//C语言使用注意开头gcc与其他不同
+gcc -fPIC -D_REENTRANT -I/usr/java/jdk1.8.0_181/include  -I/usr/java/jdk1.8.0_181/include/linux -c feeso.c
+
+
+——————————————————————————————————
+本次使用如下：
+//根据.class文件生成.h文件
+javah sf.gg.Hello 
+	
+	
+在运行的.c根路径下：	  
+1:g++ -g -c -o parm_delv_v3.o -I/usr/java/jdk1.8.0_181/include  -I/usr/java/jdk1.8.0_181/include/linux parm_delv_v3.c
+
+
+2:g++ -fPIC -shared -o calcfee.so parm_delv_v3.o ../comm.o ../config.o ../xml/tinystr.o ../xml/tinyxml.o ../xml/tinyxmlerror.o ../xml/tinyxmlparser.o -Xlinker --unresolved-symbols=ignore-in-shared-libs
+
+
+
+
+
+
+
+
+
+
+
+

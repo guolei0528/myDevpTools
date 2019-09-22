@@ -1,0 +1,103 @@
+04-Sep-2018 08:56:09.352 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.10
+04-Sep-2018 08:56:09.407 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 20 2018 17:32:21 UTC
+04-Sep-2018 08:56:09.407 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.10.0
+04-Sep-2018 08:56:09.408 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+04-Sep-2018 08:56:09.408 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.13.0-32-generic
+04-Sep-2018 08:56:09.408 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          i386
+04-Sep-2018 08:56:09.408 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/java/jdk1.8.0_181/jre
+04-Sep-2018 08:56:09.408 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_181-b13
+04-Sep-2018 08:56:09.408 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+04-Sep-2018 08:56:09.408 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /opt/apache-tomcat-9.0.10
+04-Sep-2018 08:56:09.409 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /opt/apache-tomcat-9.0.10
+04-Sep-2018 08:56:09.409 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.10/conf/logging.properties
+04-Sep-2018 08:56:09.409 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+04-Sep-2018 08:56:09.409 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+04-Sep-2018 08:56:09.409 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+04-Sep-2018 08:56:09.409 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+04-Sep-2018 08:56:09.409 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+04-Sep-2018 08:56:09.410 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/opt/apache-tomcat-9.0.10
+04-Sep-2018 08:56:09.410 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/opt/apache-tomcat-9.0.10
+04-Sep-2018 08:56:09.410 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/opt/apache-tomcat-9.0.10/temp
+04-Sep-2018 08:56:09.410 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/i386:/lib:/usr/lib]
+04-Sep-2018 08:56:09.866 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 08:56:09.901 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+04-Sep-2018 08:56:09.926 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+04-Sep-2018 08:56:09.931 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+04-Sep-2018 08:56:09.932 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1445 ms
+04-Sep-2018 08:56:10.007 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+04-Sep-2018 08:56:10.007 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.10
+04-Sep-2018 08:56:10.103 信息 [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/opt/apache-tomcat-9.0.10/webapps/cost_webservice.war]
+04-Sep-2018 08:56:14.768 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+04-Sep-2018 08:56:18.888 信息 [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/opt/apache-tomcat-9.0.10/webapps/cost_webservice.war] has finished in [8,784] ms
+04-Sep-2018 08:56:18.889 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/manager]
+04-Sep-2018 08:56:18.969 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/manager] has finished in [79] ms
+04-Sep-2018 08:56:18.974 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/examples]
+04-Sep-2018 08:56:19.358 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/examples] has finished in [384] ms
+04-Sep-2018 08:56:19.359 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/docs]
+04-Sep-2018 08:56:19.409 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/docs] has finished in [50] ms
+04-Sep-2018 08:56:19.411 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/ROOT]
+04-Sep-2018 08:56:19.448 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/ROOT] has finished in [38] ms
+04-Sep-2018 08:56:19.450 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/host-manager]
+04-Sep-2018 08:56:19.510 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/host-manager] has finished in [60] ms
+04-Sep-2018 08:56:19.516 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 08:56:19.530 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+04-Sep-2018 08:56:19.533 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 9600 ms
+04-Sep-2018 08:58:46.739 信息 [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+04-Sep-2018 08:58:46.739 信息 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 08:58:46.796 信息 [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+04-Sep-2018 08:58:46.797 信息 [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+04-Sep-2018 08:58:46.896 信息 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 08:58:46.898 信息 [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+04-Sep-2018 08:58:46.905 信息 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 08:58:46.906 信息 [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+04-Sep-2018 08:58:49.142 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.10
+04-Sep-2018 08:58:49.157 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 20 2018 17:32:21 UTC
+04-Sep-2018 08:58:49.157 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.10.0
+04-Sep-2018 08:58:49.157 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+04-Sep-2018 08:58:49.157 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            3.13.0-32-generic
+04-Sep-2018 08:58:49.157 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          i386
+04-Sep-2018 08:58:49.157 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/java/jdk1.8.0_181/jre
+04-Sep-2018 08:58:49.157 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_181-b13
+04-Sep-2018 08:58:49.157 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+04-Sep-2018 08:58:49.158 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /opt/apache-tomcat-9.0.10
+04-Sep-2018 08:58:49.158 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /opt/apache-tomcat-9.0.10
+04-Sep-2018 08:58:49.158 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.10/conf/logging.properties
+04-Sep-2018 08:58:49.160 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+04-Sep-2018 08:58:49.160 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+04-Sep-2018 08:58:49.160 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+04-Sep-2018 08:58:49.160 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+04-Sep-2018 08:58:49.161 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+04-Sep-2018 08:58:49.161 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/opt/apache-tomcat-9.0.10
+04-Sep-2018 08:58:49.161 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/opt/apache-tomcat-9.0.10
+04-Sep-2018 08:58:49.161 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/opt/apache-tomcat-9.0.10/temp
+04-Sep-2018 08:58:49.162 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/i386:/lib:/usr/lib]
+04-Sep-2018 08:58:49.359 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 08:58:49.374 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+04-Sep-2018 08:58:49.385 信息 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+04-Sep-2018 08:58:49.387 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+04-Sep-2018 08:58:49.392 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 949 ms
+04-Sep-2018 08:58:49.472 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+04-Sep-2018 08:58:49.473 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.10
+04-Sep-2018 08:58:49.536 信息 [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/opt/apache-tomcat-9.0.10/webapps/cost_webservice.war]
+04-Sep-2018 08:58:53.241 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+04-Sep-2018 08:58:56.777 信息 [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/opt/apache-tomcat-9.0.10/webapps/cost_webservice.war] has finished in [7,239] ms
+04-Sep-2018 08:58:56.778 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/manager]
+04-Sep-2018 08:58:56.813 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/manager] has finished in [34] ms
+04-Sep-2018 08:58:56.813 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/examples]
+04-Sep-2018 08:58:57.044 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/examples] has finished in [231] ms
+04-Sep-2018 08:58:57.044 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/docs]
+04-Sep-2018 08:58:57.060 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/docs] has finished in [15] ms
+04-Sep-2018 08:58:57.060 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/ROOT]
+04-Sep-2018 08:58:57.075 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/ROOT] has finished in [15] ms
+04-Sep-2018 08:58:57.076 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/apache-tomcat-9.0.10/webapps/host-manager]
+04-Sep-2018 08:58:57.114 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/apache-tomcat-9.0.10/webapps/host-manager] has finished in [38] ms
+04-Sep-2018 08:58:57.118 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 08:58:57.137 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+04-Sep-2018 08:58:57.143 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 7750 ms
+04-Sep-2018 09:30:36.573 信息 [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 09:30:36.581 信息 [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+04-Sep-2018 09:30:36.582 信息 [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+04-Sep-2018 09:30:36.723 信息 [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 09:30:36.725 信息 [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+04-Sep-2018 09:30:36.728 信息 [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+04-Sep-2018 09:30:36.730 信息 [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
